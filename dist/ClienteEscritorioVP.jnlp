@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="ClienteEscritorioVP.jnlp">
+  <information>
+    <title>ClienteEscritorioVP</title>
+    <vendor>stivm</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="ClienteEscritorioVP.jar" size="7010" download="eager" />
+  </resources>
+  <jfx:javafx-desc  width="800" height="600" main-class="clienteescritoriovp.ClienteEscritorioVP"  name="ClienteEscritorioVP" />
+  <update check="always"/>
+</jnlp>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clienteescritoriovp.FXMLInicioSesionController">
+   <children>
+      <Label layoutX="227.0" layoutY="32.0" text="Bienvenido(a)" textFill="#418cb2">
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="180.0" layoutY="105.0" text="Correo electrónico" />
+      <TextField fx:id="tfCorreo" layoutX="179.0" layoutY="132.0" prefHeight="39.0" prefWidth="256.0" promptText="tucorreo@dominio.com" />
+      <Label layoutX="182.0" layoutY="207.0" text="Contraseña" />
+      <PasswordField fx:id="pfContrasenia" layoutX="179.0" layoutY="234.0" prefHeight="39.0" prefWidth="256.0" promptText="******" />
+      <Button layoutX="253.0" layoutY="325.0" mnemonicParsing="false" onAction="#clickIniciarSesion" prefHeight="39.0" prefWidth="107.0" text="Ingresar" />
+   </children>
+</AnchorPane>

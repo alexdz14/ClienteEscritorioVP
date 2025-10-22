@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clienteescritoriovp.FXMLPrincipalController">
+
+    <children>
+        <Label layoutX="42.0" layoutY="33.0" text="Bienvenido(a)" textFill="#333333">
+            <font>
+                <Font name="System Bold" size="16" />
+            </font>
+        </Label>
+
+        <Label layoutX="42.0" layoutY="84.0" text="Alexander Alducin Diaz" textFill="#001F77">
+            <font>
+                <Font name="System Bold" size="20" />
+            </font>
+        </Label>
+
+        <Label layoutX="42.0" layoutY="141.0" text="No. de personal:" textFill="#777777">
+            <font>
+                <Font size="13" />
+            </font>
+        </Label>
+          <Label layoutX="42.0" layoutY="114.0" text="Rol: " />
+    </children>
+</AnchorPane>
