@@ -19,6 +19,6 @@
         <TextField fx:id="tfNumeroPersonal" layoutX="172.0" layoutY="172.0" prefWidth="250" promptText="Alex01" />
         <Label layoutX="172.0" layoutY="222.0" text="Contraseña" textFill="#555555" />
         <PasswordField fx:id="pfContrasena" layoutX="172.0" layoutY="242.0" prefWidth="250" promptText="********" />
-        <Button fx:id="btnIngresar" layoutX="377.0" layoutY="308.0" onAction="#clickIngresar" prefHeight="25.0" prefWidth="91.0" style="-fx-background-color: #001F77; -fx-text-fill: white;" text="Ingresar" />
+        <Button fx:id="btnIngresar" layoutX="377.0" layoutY="308.0" onAction="#clicIniciarSesion" prefHeight="25.0" prefWidth="91.0" style="-fx-background-color: #001F77; -fx-text-fill: white;" text="Ingresar" />
     </children>
 </AnchorPane>
