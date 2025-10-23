@@ -1,9 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package clienteescritoriovp;
 
+import clienteescritoriovp.pojo.Profesor;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -16,58 +13,58 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-/**
- * FXML Controller class
- *
- * @author stivm
- */
+
 public class FXMLPrincipalController implements Initializable {
 
+    @FXML
+    private Label lbNombreCompleto;
+    @FXML
+    private Label lbNoPersonal;
+    @FXML
+    private Label lbRol;
 
-    /**
-     * Initializes the controller class.
-     */
+    private Profesor profesorLogueado;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+    }
 
-    private void clicIrAdministrador(ActionEvent event) {
-        try {
-            //Cargar el FXML a memoria a un Parent
-            Parent vista = FXMLLoader.load(getClass().getResource("FXMLAdministracionUsuarios.fxml"));
-            Scene scAdmin = new Scene(vista);
-                    
-                
-            //Para manejar navegacion vamos a crear un nuevo Stage
-            Stage stAdmin = new Stage();
-            stAdmin.setScene(scAdmin);
-            stAdmin.setTitle("Administración usuarios");
-            stAdmin.initModality(Modality.APPLICATION_MODAL);
-            stAdmin.showAndWait();
-        
-            } catch (IOException ex) {
-            Logger.getLogger(FXMLPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+    public void inicializarDatos(Profesor profesor) {
+        this.profesorLogueado = profesor;
+        if (profesor != null) {
+            lbNombreCompleto.setText(profesor.getNombre() + " " + profesor.getApellidoPaterno() + " " + profesor.getApellidoMaterno());
+            lbNoPersonal.setText(profesor.getNoPersonal());
+            lbRol.setText(profesor.getRol());
+        } else {
+            lbNombreCompleto.setText("Error al cargar datos");
+            lbNoPersonal.setText("-");
+            lbRol.setText("-");
         }
     }
 
+    @FXML
+    private void clicIrAdministrador(ActionEvent event) {
+       //TODO
+    }
+
+    @FXML 
     private void clicCerrarSesion(ActionEvent event) {
         try {
             Parent vistaLogin = FXMLLoader.load(getClass().getResource("FXMLInicioSesion.fxml"));
             Scene escenaInicioSesion = new Scene(vistaLogin);
-            
-            Stage stPrimaryStage = (Stage) ( (Button) event.getSource() ).getScene().getWindow();
-            
+
+            Stage stPrimaryStage = (Stage) lbNombreCompleto.getScene().getWindow();
+
             stPrimaryStage.setScene(escenaInicioSesion);
+            stPrimaryStage.setTitle("Autenticación");
             stPrimaryStage.show();
-                        
+
         } catch (IOException ex) {
-            Logger.getLogger(FXMLPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FXMLPrincipalController.class.getName()).log(Level.SEVERE, "Error al cerrar sesión", ex);
         }
-                
     }
-    
 }

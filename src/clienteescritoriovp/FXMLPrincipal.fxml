@@ -15,18 +15,25 @@
                 <Font name="System Bold" size="16" />
             </font>
         </Label>
-
-        <Label layoutX="42.0" layoutY="84.0" text="Alexander Alducin Diaz" textFill="#001F77">
+        <Label fx:id="lbNombreCompleto" layoutX="42.0" layoutY="84.0" text="Nombre ApellidoP ApellidoM" textFill="#001F77">
             <font>
                 <Font name="System Bold" size="20" />
             </font>
         </Label>
-
+        <Label fx:id="lbNoPersonal" layoutX="140.0" layoutY="141.0" text="NoPersonalDelProfesor" textFill="#555555">
+             <font>
+                <Font size="13" />
+            </font>
+        </Label>
         <Label layoutX="42.0" layoutY="141.0" text="No. de personal:" textFill="#777777">
             <font>
                 <Font size="13" />
             </font>
         </Label>
-          <Label layoutX="42.0" layoutY="114.0" text="Rol: " />
+        <Label fx:id="lbRol" layoutX="75.0" layoutY="114.0" text="RolDelProfesor" />
+        <Label layoutX="42.0" layoutY="114.0" text="Rol: " />
+
+        <Button fx:id="btnCerrarSesion" layoutX="480.0" layoutY="350.0" mnemonicParsing="false" onAction="#clicCerrarSesion" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: #AA0000; -fx-text-fill: white;" text="Cerrar Sesión" />
+        
     </children>
 </AnchorPane>
