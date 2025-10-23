@@ -1,9 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package clienteescritoriovp;
 
+import clienteescritoriovp.dominio.InicioSesionImp;
+import clienteescritoriovp.dto.RespuestaInicioSesion;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -18,51 +16,56 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
-
-/**
- * FXML Controller class
- *
- * @author stivm
- */
+   
 public class FXMLInicioSesionController implements Initializable {
 
-    private TextField tfCorreo;
-    private PasswordField pfContrasenia;
     @FXML
     private TextField tfNumeroPersonal;
     @FXML
-    private PasswordField pfContrasena;
-    @FXML
-    private Button btnIngresar;
-    
+    private PasswordField pfContrasenia;  
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        
     }    
 
-    private void clickIniciarSesion(ActionEvent event) {
-        String correo = tfCorreo.getText();
+    @FXML
+    private void clicIniciarSesion(ActionEvent event) {
+        String noPersonal = tfNumeroPersonal.getText();
         String password = pfContrasenia.getText();
         
-        if(!correo.isEmpty() && !password.isEmpty()){
-            irPantallaPrincipal();
+        if(!noPersonal.isEmpty() && !password.isEmpty()){
+            //irPantallaPrincipal();
+            RespuestaInicioSesion respuesta = InicioSesionImp.verificarCredenciales(noPersonal, password);
+            if(!respuesta.isError()){
+                Alert alertaSimple = new Alert(Alert.AlertType.WARNING);
+                alertaSimple.setTitle("Credenciales correctas");
+                alertaSimple.setHeaderText(null);
+                alertaSimple.setContentText("Bienvenido(a) profesor(a) "+respuesta.getProfesor().getNombre()
+                        +" "+respuesta.getProfesor().getApellidoPaterno());
+                alertaSimple.showAndWait();
+            }else {
+                Alert alertaSimple = new Alert(Alert.AlertType.WARNING);
+                alertaSimple.setTitle("Error");
+                alertaSimple.setHeaderText(null);
+                alertaSimple.setContentText(respuesta.getMensaje());
+                alertaSimple.showAndWait();
+            }
         }else{
             Alert alertaSimple = new Alert(Alert.AlertType.WARNING);
             alertaSimple.setTitle("Campos vacíos");
             alertaSimple.setHeaderText(null);
-            alertaSimple.setContentText("Para ingresar debes escribir un correo electronico y contraseña");
+            alertaSimple.setContentText("Para ingresar debes escribir tu correo electrónico y contraseña");
             alertaSimple.showAndWait();
         }
     }
     
     private void irPantallaPrincipal(){
         try {
-            // Creamos la escena
+            // Creamos el Scene
             Parent vista = FXMLLoader.load(getClass().getResource("FXMLPrincipal.fxml"));
             Scene scPrincipal = new Scene(vista);
-            // Obtenemos el Stage actual
-            Stage primaryStage = (Stage) tfCorreo.getScene().getWindow();
+            // Casteamos porque necesita un Stage
+            Stage primaryStage = (Stage) tfNumeroPersonal.getScene().getWindow();
             primaryStage.setScene(scPrincipal);
             primaryStage.setTitle("Principal");
             primaryStage.show();
@@ -71,9 +74,7 @@ public class FXMLInicioSesionController implements Initializable {
             ex.printStackTrace();
         }
     }
-
-    @FXML
-    private void clickIngresar(ActionEvent event) {
-    }
+    
+    
+    
 }
-

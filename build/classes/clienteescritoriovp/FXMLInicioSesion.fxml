@@ -8,16 +8,17 @@
 <?import javafx.scene.layout.*?>
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clienteescritoriovp.FXMLInicioSesionController">
-   <children>
-      <Label layoutX="227.0" layoutY="32.0" text="Bienvenido(a)" textFill="#418cb2">
-         <font>
-            <Font name="Arial Bold" size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="180.0" layoutY="105.0" text="Correo electrónico" />
-      <TextField fx:id="tfCorreo" layoutX="179.0" layoutY="132.0" prefHeight="39.0" prefWidth="256.0" promptText="tucorreo@dominio.com" />
-      <Label layoutX="182.0" layoutY="207.0" text="Contraseña" />
-      <PasswordField fx:id="pfContrasenia" layoutX="179.0" layoutY="234.0" prefHeight="39.0" prefWidth="256.0" promptText="******" />
-      <Button layoutX="253.0" layoutY="325.0" mnemonicParsing="false" onAction="#clickIniciarSesion" prefHeight="39.0" prefWidth="107.0" text="Ingresar" />
-   </children>
+    <children>
+        <Label layoutX="223.0" layoutY="71.0" text="Bienvenido(a)" textFill="#000000">
+            <font><Font name="System Bold" size="22" /></font>
+        </Label>
+        <Label layoutX="127.0" layoutY="110.0" text="Para contnuar, ingresa tu número de personal y contraseña" textFill="#333333" wrapText="true">
+            <font><Font size="13" /></font>
+        </Label>
+        <Label layoutX="172.0" layoutY="152.0" text="Número de personal" textFill="#555555" />
+        <TextField fx:id="tfNumeroPersonal" layoutX="172.0" layoutY="172.0" prefWidth="250" promptText="Alex01" />
+        <Label layoutX="172.0" layoutY="222.0" text="Contraseña" textFill="#555555" />
+        <PasswordField fx:id="pfContrasena" layoutX="172.0" layoutY="242.0" prefWidth="250" promptText="********" />
+        <Button fx:id="btnIngresar" layoutX="377.0" layoutY="308.0" onAction="#clickIngresar" prefHeight="25.0" prefWidth="91.0" style="-fx-background-color: #001F77; -fx-text-fill: white;" text="Ingresar" />
+    </children>
 </AnchorPane>

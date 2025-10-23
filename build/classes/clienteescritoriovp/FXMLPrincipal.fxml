@@ -8,13 +8,25 @@
 <?import javafx.scene.layout.*?>
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clienteescritoriovp.FXMLPrincipalController">
-   <children>
-      <Label layoutX="268.0" layoutY="144.0" text="Home" textFill="#4400ff">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Button layoutX="189.0" layoutY="247.0" mnemonicParsing="false" onAction="#clicIrAdministrador" text="Ir administrador usuarios" />
-      <Button fx:id="btnCerrar" layoutX="436.0" layoutY="46.0" mnemonicParsing="false" onAction="#clicCerrarSesion" text="Cerrar sesión" />
-   </children>
+
+    <children>
+        <Label layoutX="42.0" layoutY="33.0" text="Bienvenido(a)" textFill="#333333">
+            <font>
+                <Font name="System Bold" size="16" />
+            </font>
+        </Label>
+
+        <Label layoutX="42.0" layoutY="84.0" text="Alexander Alducin Diaz" textFill="#001F77">
+            <font>
+                <Font name="System Bold" size="20" />
+            </font>
+        </Label>
+
+        <Label layoutX="42.0" layoutY="141.0" text="No. de personal:" textFill="#777777">
+            <font>
+                <Font size="13" />
+            </font>
+        </Label>
+          <Label layoutX="42.0" layoutY="114.0" text="Rol: " />
+    </children>
 </AnchorPane>
