@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -9,16 +10,31 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clienteescritoriovp.FXMLInicioSesionController">
     <children>
-        <Label layoutX="223.0" layoutY="71.0" text="Bienvenido(a)" textFill="#000000">
+        <Label layoutX="381.0" layoutY="31.0" text="Bienvenido(a)" textFill="#000000">
             <font><Font name="System Bold" size="22" /></font>
         </Label>
-        <Label layoutX="127.0" layoutY="110.0" text="Para continuar, ingresa tu número de personal y contraseña" textFill="#333333" wrapText="true">
+        <Label layoutX="336.0" layoutY="63.0" prefHeight="45.0" prefWidth="250.0" text="Para continuar, ingresa tu número de personal y contraseña" textFill="#333333" wrapText="true">
             <font><Font size="13" /></font>
         </Label>
-        <Label layoutX="172.0" layoutY="152.0" text="Número de personal" textFill="#555555" />
-        <TextField fx:id="tfNumeroPersonal" layoutX="172.0" layoutY="172.0" prefWidth="250" promptText="000" />
-        <Label layoutX="172.0" layoutY="222.0" text="Contraseña" textFill="#555555" />
-        <PasswordField fx:id="pfContrasenia" layoutX="172.0" layoutY="242.0" prefWidth="250" promptText="********" />
-        <Button fx:id="btnIngresar" layoutX="377.0" layoutY="308.0" onAction="#clicIniciarSesion" prefHeight="25.0" prefWidth="91.0" style="-fx-background-color: #001F77; -fx-text-fill: white;" text="Ingresar" />
+        <Label layoutX="328.0" layoutY="128.0" text="Número de personal" textFill="#555555" />
+        <TextField fx:id="tfNumeroPersonal" layoutX="328.0" layoutY="148.0" prefWidth="250" promptText="000" />
+        <Label layoutX="328.0" layoutY="214.0" text="Contraseña" textFill="#555555" />
+        <PasswordField fx:id="pfContrasenia" layoutX="328.0" layoutY="234.0" prefWidth="250" promptText="********" />
+        <Button fx:id="btnIngresar" layoutX="484.0" layoutY="339.0" onAction="#clicIniciarSesion" prefHeight="25.0" prefWidth="91.0" style="-fx-background-color: #001F77; -fx-text-fill: white;" text="Ingresar" />
+      <Label fx:id="lbErrorNoPersonal" layoutX="328.0" layoutY="187.0" prefHeight="27.0" prefWidth="250.0" textFill="RED">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbErrorContrasenia" layoutX="328.0" layoutY="267.0" prefHeight="15.0" prefWidth="250.0" textFill="RED">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="75.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@recurso/zLogosimbolo_color.jpg" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>

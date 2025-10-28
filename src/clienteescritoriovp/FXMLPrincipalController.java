@@ -28,43 +28,52 @@ public class FXMLPrincipalController implements Initializable {
     private Label lbRol;
 
     private Profesor profesorLogueado;
+    @FXML
+    private Button btnCerrarSesion;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
     }
 
-    public void inicializarDatos(Profesor profesor) {
-        this.profesorLogueado = profesor;
-        if (profesor != null) {
-            lbNombreCompleto.setText(profesor.getNombre() + " " + profesor.getApellidoPaterno() + " " + profesor.getApellidoMaterno());
-            lbNoPersonal.setText(profesor.getNoPersonal());
-            lbRol.setText(profesor.getRol());
-        } else {
-            lbNombreCompleto.setText("Error al cargar datos");
-            lbNoPersonal.setText("-");
-            lbRol.setText("-");
-        }
-    }
 
-    @FXML
-    private void clicIrAdministrador(ActionEvent event) {
-       //TODO
-    }
+    public void inicializarDatos(Profesor profesor) {
+            this.profesorLogueado = profesor;
+            if (profesor != null) {
+                lbNombreCompleto.setText(profesor.getNombre() + " " + profesor.getApellidoPaterno() + " " + profesor.getApellidoMaterno());
+                lbNoPersonal.setText(profesor.getNoPersonal());
+                lbRol.setText(profesor.getRol());
+            } else {
+                lbNombreCompleto.setText("Error al cargar datos");
+                lbNoPersonal.setText("-");
+                lbRol.setText("-");
+            }
+
+        }
+    /*public void inicializarDatos(Profesor profesor){
+        this.profesorLogueado = profesor;
+        lbRol.setText("Rol: "+profesor.getRol());
+        lbNombreCompleto.setText(profesor.getNombre()+" "+profesor.getApellidoPaterno()+" "+profesor.getApellidoMaterno());
+        lbNoPersonal.setText("No. de personal "+profesor.getNoPersonal());
+    }*/
 
     @FXML 
-    private void clicCerrarSesion(ActionEvent event) {
+        private void clicCerrarSesion(ActionEvent event) {
         try {
             Parent vistaLogin = FXMLLoader.load(getClass().getResource("FXMLInicioSesion.fxml"));
             Scene escenaInicioSesion = new Scene(vistaLogin);
-
-            Stage stPrimaryStage = (Stage) lbNombreCompleto.getScene().getWindow();
-
+            
+            Stage stPrimaryStage = (Stage) ( (Button) event.getSource() ).getScene().getWindow();
+            
             stPrimaryStage.setScene(escenaInicioSesion);
-            stPrimaryStage.setTitle("Autenticación");
             stPrimaryStage.show();
-
+                        
         } catch (IOException ex) {
-            Logger.getLogger(FXMLPrincipalController.class.getName()).log(Level.SEVERE, "Error al cerrar sesión", ex);
+            Logger.getLogger(FXMLPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
         }
+                
+    }
+
+    @FXML
+    private void clicIrAdminProfesores(ActionEvent event) {
     }
 }

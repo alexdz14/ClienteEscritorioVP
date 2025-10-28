@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import javafx.scene.control.Alert;
 
 
 public class Utilidades {
@@ -18,6 +19,14 @@ public class Utilidades {
         in.close();
         return respuestaEntrada.toString();
        }
+    
+    public static void mostrarAlertaSimple(String titulo, String contenido, Alert.AlertType tipo){
+        Alert alerta = new Alert(tipo);
+        alerta.setTitle(titulo);
+        alerta.setHeaderText(null);
+        alerta.setContentText(contenido);
+        alerta.showAndWait();
+    }
 
 
 }
