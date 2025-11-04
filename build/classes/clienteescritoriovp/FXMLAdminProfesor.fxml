@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clienteescritoriovp.FXMLAdminProfesorController">
+   <children>
+      <Pane prefHeight="61.0" prefWidth="750.0" style="-fx-background-color: #892332;" />
+      <TextField fx:id="tfBuscar" layoutX="31.0" layoutY="92.0" promptText="Buscar profesor" />
+      <Button layoutX="455.0" layoutY="92.0" mnemonicParsing="false" onAction="#clicIrModificar" prefHeight="39.0" prefWidth="120.0" text="Editar" />
+      <Button layoutX="297.0" layoutY="92.0" mnemonicParsing="false" onAction="#clicIrRegistrar" prefHeight="39.0" prefWidth="120.0" text="Registrar" />
+      <Button layoutX="610.0" layoutY="92.0" mnemonicParsing="false" onAction="#clicEliminar" prefHeight="39.0" prefWidth="120.0" text="Eliminar" />
+      <TableView fx:id="tvProfesores" layoutX="14.0" layoutY="168.0" prefHeight="309.0" prefWidth="716.0">
+        <columns>
+          <TableColumn fx:id="colNoPersonal" prefWidth="116.0" text="No. de Personal" />
+          <TableColumn fx:id="colNombre" prefWidth="96.0" text="Nombre" />
+            <TableColumn fx:id="colApPaterno" prefWidth="109.0" text="Apellido paterno" />
+            <TableColumn fx:id="colApMaterno" prefWidth="132.0" text="Apellido materno" />
+            <TableColumn fx:id="colFechaContratacion" prefWidth="162.0" text="Fecha de contratacion" />
+            <TableColumn fx:id="colRol" prefWidth="100.0" text="Rol" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

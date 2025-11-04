@@ -9,4 +9,8 @@ public class Constantes {
     
     public static final String METODO_POST = "POST";
     public static final String CONTENT_FORM = "application/x-www-form-urlencoded";
+    public static final String MSJ_ERROR_URL = "Lo sentimos hubo un error al intentar conectar con el servicio.";
+    public static final String MSJ_ERROR_PETICION = "Lo sentimos hubo un error al leer la información.";
+
 }
+

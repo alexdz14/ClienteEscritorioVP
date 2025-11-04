@@ -75,5 +75,19 @@ public class FXMLPrincipalController implements Initializable {
 
     @FXML
     private void clicIrAdminProfesores(ActionEvent event) {
+        try{
+            Parent vista = FXMLLoader.load( getClass().getResource("FXMLAdminProfesor.fxml") );
+            Scene escena = new Scene(vista);
+            
+            Stage escenario = new Stage();
+            escenario.setScene(escena);
+            escenario.setTitle("Administrador de profesores");
+            // Stage 1 queda debajo de Stage 2, esto no permite que el Stage 1 se ponga encima de Stage 2
+            escenario.initModality(Modality.APPLICATION_MODAL);
+            escenario.showAndWait();
+            
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }

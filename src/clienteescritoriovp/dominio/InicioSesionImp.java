@@ -29,10 +29,10 @@ public class InicioSesionImp {
             respuesta.setError(true);
             switch(respuestaAPI.getCodigo()){
                 case Constantes.ERROR_MALFORMED_URL:
-                        respuesta.setMensaje("Lo sentimos hubo un error al intentar conectar con el servicio.");
+                        respuesta.setMensaje(Constantes.MSJ_ERROR_URL);
                     break;
                 case Constantes.ERROR_PETICION:
-                        respuesta.setMensaje("Lo sentimos hubo un error al leer la información.");
+                        respuesta.setMensaje(Constantes.MSJ_ERROR_PETICION);
                     break;
                 case HttpURLConnection.HTTP_BAD_REQUEST:
                         respuesta.setMensaje("Lo sentimos la información no tiene el formato correcto.");
