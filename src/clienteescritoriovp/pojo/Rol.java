@@ -28,5 +28,12 @@ public class Rol {
     public void setRol(String rol) {
         this.rol = rol;
     }
+
+    //Esto actualiza el combobox, para que ya sea visible los roles
+    @Override
+    public String toString() {
+        return "- "+rol;
+    }
+    
     
 }

@@ -5,6 +5,7 @@
 package clienteescritoriovp;
 
 import clienteescritoriovp.dominio.ProfesorImp;
+import clienteescritoriovp.interfaz.INotificador;
 import clienteescritoriovp.pojo.Profesor;
 import clienteescritoriovp.utilidad.Utilidades;
 import java.net.URL;
@@ -32,7 +33,7 @@ import javafx.stage.Stage;
  *
  * @author stivm
  */
-public class FXMLAdminProfesorController implements Initializable {
+public class FXMLAdminProfesorController implements Initializable, INotificador {
 
     @FXML
     private TextField tfBuscar;
@@ -64,11 +65,19 @@ public class FXMLAdminProfesorController implements Initializable {
 
     @FXML
     private void clicIrModificar(ActionEvent event) {
+        Profesor profesor = tvProfesores.getSelectionModel().getSelectedItem();
+        if(profesor != null){
+            irFormulario(profesor);
+        }else{
+            Utilidades.mostrarAlertaSimple("Selecciona un profesor", 
+                    "Para editar la información de un profesor, debes seleccionarlo en la tabla", 
+                    Alert.AlertType.WARNING);
+        }
     }
 
     @FXML
     private void clicIrRegistrar(ActionEvent event) {
-        irFormulario();
+        irFormulario(null);
     }
 
     @FXML
@@ -98,10 +107,12 @@ public class FXMLAdminProfesorController implements Initializable {
         }
     }
     
-    private void irFormulario(){
+    private void irFormulario(Profesor profesor){
         try{
             FXMLLoader cargador = new FXMLLoader(getClass().getResource("FXMLFormularioProfesor.fxml"));
             Parent vista = cargador.load();
+            FXMLFormularioProfesorController controlador = cargador.getController();
+            controlador.inicializarDatos(profesor, this);
             Scene escena = new Scene(vista);
             Stage escenario = new Stage();
             escenario.setScene(escena);
@@ -111,5 +122,11 @@ public class FXMLAdminProfesorController implements Initializable {
         }catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void notificarOperacionExitosa(String operacion, String nombre) {
+        System.err.println("Operacion: "+operacion+", nombre: "+nombre);
+        cargarInformacionProfesores();
     }
 }

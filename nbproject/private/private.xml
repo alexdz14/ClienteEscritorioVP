@@ -4,15 +4,13 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/D:/stivm/Documentos/NetBeansProjects/ClienteEscritorioVP/src/clienteescritoriovp/FXMLPrincipalController.java</file>
-            <file>file:/D:/stivm/Documentos/NetBeansProjects/ClienteEscritorioVP/src/clienteescritoriovp/ClienteEscritorioVP.java</file>
-            <file>file:/D:/stivm/Documentos/NetBeansProjects/ClienteEscritorioVP/src/clienteescritoriovp/FXMLAdministracionUsuariosController.java</file>
-            <file>file:/D:/stivm/Documentos/NetBeansProjects/ClienteEscritorioVP/src/clienteescritoriovp/FXMLInicioSesionController.java</file>
-            <file>file:/D:/stivm/Documentos/NetBeansProjects/ClienteEscritorioVP/src/clienteescritoriovp/pojo/Profesor.java</file>
+            <file>file:/D:/stivm/Documentos/NetBeansProjects/ClienteEscritorioVP/src/clienteescritoriovp/dominio/CatalogoImp.java</file>
+            <file>file:/D:/stivm/Documentos/NetBeansProjects/ClienteEscritorioVP/src/clienteescritoriovp/dominio/ProfesorImp.java</file>
+            <file>file:/D:/stivm/Documentos/NetBeansProjects/ClienteEscritorioVP/src/clienteescritoriovp/dto/Respuesta.java</file>
             <file>file:/D:/stivm/Documentos/NetBeansProjects/ClienteEscritorioVP/src/clienteescritoriovp/utilidad/Constantes.java</file>
-            <file>file:/D:/stivm/Documentos/NetBeansProjects/ClienteEscritorioVP/src/clienteescritoriovp/utilidad/Utilidades.java</file>
-            <file>file:/D:/stivm/Documentos/NetBeansProjects/ClienteEscritorioVP/src/clienteescritoriovp/pojo/RespuestaHTTP.java</file>
-            <file>file:/D:/stivm/Documentos/NetBeansProjects/ClienteEscritorioVP/src/clienteescritoriovp/dto/RespuestaInicioSesion.java</file>
-            <file>file:/D:/stivm/Documentos/NetBeansProjects/ClienteEscritorioVP/src/clienteescritoriovp/dominio/InicioSesionImp.java</file>
+            <file>file:/D:/stivm/Documentos/NetBeansProjects/ClienteEscritorioVP/src/clienteescritoriovp/FXMLFormularioProfesorController.java</file>
+            <file>file:/D:/stivm/Documentos/NetBeansProjects/ClienteEscritorioVP/src/clienteescritoriovp/interfaz/INotificador.java</file>
+            <file>file:/D:/stivm/Documentos/NetBeansProjects/ClienteEscritorioVP/src/clienteescritoriovp/FXMLAdminProfesorController.java</file>
         </group>
     </open-files>
 </project-private>
