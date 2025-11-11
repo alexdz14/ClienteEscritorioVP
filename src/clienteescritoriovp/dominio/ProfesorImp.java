@@ -44,7 +44,6 @@ public class ProfesorImp {
         }
         return respuesta;
     }
- 
     public static Respuesta registrar(Profesor profesor) {
         Respuesta respuesta = new Respuesta();
         String URL = Constantes.URL_WS + "profesor/registrar";
@@ -74,7 +73,63 @@ public class ProfesorImp {
         }
         return respuesta;
     }
-
-
+    public static Respuesta editar(Profesor profesor) {
+        Respuesta respuesta = new Respuesta();
+        String URL = Constantes.URL_WS + "profesor/editar";
+        Gson gson = new Gson();
+        String parametrosJSON = gson.toJson(profesor);
+        RespuestaHTTP respuestaAPI
+                = ConexionAPI.peticionBody(URL, "PUT", parametrosJSON,
+                        Constantes.CONTENT_JSON);
+        if (respuestaAPI.getCodigo() == HttpURLConnection.HTTP_OK) {
+            respuesta = gson.fromJson(respuestaAPI.getContenido(), Respuesta.class);
+        } else {
+            respuesta.setError(true);
+            switch (respuestaAPI.getCodigo()) {
+                case Constantes.ERROR_MALFORMED_URL:
+                    respuesta.setMensaje(Constantes.MSJ_ERROR_URL);
+                    break;
+                case Constantes.ERROR_PETICION:
+                    respuesta.setMensaje(Constantes.MSJ_ERROR_PETICION);
+                    break;
+                case HttpURLConnection.HTTP_BAD_REQUEST:
+                    respuesta.setMensaje("Campos en formato incorrecto, "
+                            + "+por favor verifica toda la información enviada.");
+                    break;
+                default:
+                    respuesta.setMensaje("Lo sentimos hay problemas para "
+                            + "editar la información en este momento, por favor inténtelo más tarde.");
+            }
+        }
+        return respuesta;
+    }
+    
+    public static Respuesta eliminar(int idProfesor) {
+        Respuesta respuesta = new Respuesta();
+        String URL = Constantes.URL_WS + "profesor/eliminar/" + idProfesor;
+        RespuestaHTTP respuestaAPI
+                = ConexionAPI.peticionSinBody(URL, Constantes.METODO_DELETE);
+        if (respuestaAPI.getCodigo() == HttpURLConnection.HTTP_OK) {
+            Gson gson = new Gson();
+            respuesta = gson.fromJson(respuestaAPI.getContenido(), Respuesta.class);
+        } else {
+            respuesta.setError(true);
+            switch (respuestaAPI.getCodigo()) {
+                case Constantes.ERROR_MALFORMED_URL:
+                    respuesta.setMensaje(Constantes.MSJ_ERROR_URL);
+                    break;
+                case Constantes.ERROR_PETICION:
+                    respuesta.setMensaje(Constantes.MSJ_ERROR_PETICION);
+                    break;
+                case HttpURLConnection.HTTP_BAD_REQUEST:
+                    respuesta.setMensaje("Campos en formato incorrecto, "
+                            + "+por favor verifica toda la información enviada.");
+                    break;
+                default:
+                    respuesta.setMensaje("Lo sentimos hay problemas para "
+                            + "eliminar la información en este momento, por favor inténtelo más tarde.");
+            }
+        }
+        return respuesta;
+    }   
 }
-

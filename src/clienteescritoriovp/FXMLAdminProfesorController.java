@@ -1,10 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package clienteescritoriovp;
 
 import clienteescritoriovp.dominio.ProfesorImp;
+import clienteescritoriovp.dto.Respuesta;
 import clienteescritoriovp.interfaz.INotificador;
 import clienteescritoriovp.pojo.Profesor;
 import clienteescritoriovp.utilidad.Utilidades;
@@ -82,6 +79,28 @@ public class FXMLAdminProfesorController implements Initializable, INotificador 
 
     @FXML
     private void clicEliminar(ActionEvent event) {
+        Profesor profesor = tvProfesores.getSelectionModel().getSelectedItem();
+        if(profesor != null){
+            boolean confirmacion = Utilidades.mostrarAlertaConfirmacion("Eliminar profesor",
+                    "¿Está seguro de eliminar la informacion del profesor(a)"+profesor.getNombre()+"?"
+            +"\nAl eliminar la informacion ya no puede ser recuperada.");
+            if(confirmacion){
+                eliminarProfesor(profesor);
+            }
+            
+        }else{
+            Utilidades.mostrarAlertaSimple("Selecciona un profesor", "Para eliminar la informacion de un profesor, debes deleccionarlo de la tabla", Alert.AlertType.WARNING);
+        }
+    }
+    
+    private void eliminarProfesor(Profesor profesor){
+        Respuesta respuesta = ProfesorImp.eliminar(profesor.getIdProfesor());
+        if(!respuesta.isError()){
+            Utilidades.mostrarAlertaSimple("Informacion eliminada", "La informacion del profesor(a) "+profesor.getNombre()+" ha sido eliminado correctamente", Alert.AlertType.INFORMATION);
+            cargarInformacionProfesores();
+        }else{
+            Utilidades.mostrarAlertaSimple("Error al eliminar", respuesta.getMensaje(), Alert.AlertType.ERROR);
+        }   
     }
     
     private void configurarTabla(){

@@ -92,7 +92,12 @@ public class FXMLFormularioProfesorController implements Initializable {
             profesor.setFechaContratacion(dpFechaContratacion.getValue().toString());
             Rol rolseleccion = cbRol.getSelectionModel().getSelectedItem();
             profesor.setIdRol(rolseleccion.getIdRol());
-            registrarProfesor(profesor);
+            if(profesorEdicion == null){
+                 registrarProfesor(profesor);
+            }else{
+                profesor.setIdProfesor(profesorEdicion.getIdProfesor());
+                editarProfesor(profesor);
+            }
         }
     }
 
@@ -136,7 +141,20 @@ public class FXMLFormularioProfesorController implements Initializable {
             observador.notificarOperacionExitosa("Registro", profesor.getNombre());
             cerrarVentana();
         }else{
-            Utilidades.mostrarAlertaSimple("Error al registrar", respuesta.getMensaje(), Alert.AlertType.NONE);
+            Utilidades.mostrarAlertaSimple("Error al registrar", respuesta.getMensaje(), Alert.AlertType.ERROR);
+        }
+    }
+    
+    private void editarProfesor(Profesor profesor){
+        Respuesta respuesta = ProfesorImp.editar(profesor);
+        if(!respuesta.isError()){
+            Utilidades.mostrarAlertaSimple("Profesor(a) modificado correctamente",
+                    "La información del profesor(a) "+profesor.getNombre()+" ha sido modificado correctamente", 
+                    Alert.AlertType.INFORMATION);
+            observador.notificarOperacionExitosa("Modificacion", profesor.getNombre());
+            cerrarVentana();
+        }else{
+            Utilidades.mostrarAlertaSimple("Error al modificar", respuesta.getMensaje(), Alert.AlertType.ERROR);
         }
     }
     
