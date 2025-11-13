@@ -6,11 +6,10 @@
             <file>file:/D:/stivm/Documentos/NetBeansProjects/ClienteEscritorioVP/src/clienteescritoriovp/FXMLPrincipalController.java</file>
             <file>file:/D:/stivm/Documentos/NetBeansProjects/ClienteEscritorioVP/src/clienteescritoriovp/dominio/CatalogoImp.java</file>
             <file>file:/D:/stivm/Documentos/NetBeansProjects/ClienteEscritorioVP/src/clienteescritoriovp/dominio/ProfesorImp.java</file>
-            <file>file:/D:/stivm/Documentos/NetBeansProjects/ClienteEscritorioVP/src/clienteescritoriovp/dto/Respuesta.java</file>
-            <file>file:/D:/stivm/Documentos/NetBeansProjects/ClienteEscritorioVP/src/clienteescritoriovp/utilidad/Constantes.java</file>
-            <file>file:/D:/stivm/Documentos/NetBeansProjects/ClienteEscritorioVP/src/clienteescritoriovp/FXMLFormularioProfesorController.java</file>
-            <file>file:/D:/stivm/Documentos/NetBeansProjects/ClienteEscritorioVP/src/clienteescritoriovp/interfaz/INotificador.java</file>
             <file>file:/D:/stivm/Documentos/NetBeansProjects/ClienteEscritorioVP/src/clienteescritoriovp/FXMLAdminProfesorController.java</file>
+            <file>file:/D:/stivm/Documentos/NetBeansProjects/ClienteEscritorioVP/src/clienteescritoriovp/conexion/ConexionAPI.java</file>
+            <file>file:/D:/stivm/Documentos/NetBeansProjects/ClienteEscritorioVP/src/clienteescritoriovp/FXMLSeleccionFotografiaController.java</file>
+            <file>file:/D:/stivm/Documentos/NetBeansProjects/ClienteEscritorioVP/src/clienteescritoriovp/FXMLSeleccionFotografia.fxml</file>
         </group>
     </open-files>
 </project-private>

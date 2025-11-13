@@ -148,4 +148,34 @@ public class FXMLAdminProfesorController implements Initializable, INotificador 
         System.err.println("Operacion: "+operacion+", nombre: "+nombre);
         cargarInformacionProfesores();
     }
+
+    @FXML
+    private void clicIrSeleccionFoto(ActionEvent event) {
+         Profesor profesor = tvProfesores.getSelectionModel().getSelectedItem();
+        if (profesor != null) {
+            irSeleccionarFoto(profesor);
+        } else {
+            Utilidades.mostrarAlertaSimple("Selecciona un profesor",
+                    "Para seleccionar la foto de un profesor(a), debes seleccionarlo de la tabla",
+                    Alert.AlertType.WARNING);
+        }
+    }
+    
+    private void irSeleccionarFoto(Profesor profesor){
+        try {
+            FXMLLoader cargador = new FXMLLoader(getClass().getResource("FXMLSeleccionFotografia.fxml"));
+            Parent vista = cargador.load();
+            FXMLSeleccionFotografiaController controlador = cargador.getController();
+            controlador.inicializarDatos(profesor.getIdProfesor());
+
+            Scene escena = new Scene(vista);
+            Stage escenario = new Stage();
+            escenario.setScene(escena);
+            escenario.setTitle("Selección foto profesor");
+            escenario.initModality(Modality.APPLICATION_MODAL);
+            escenario.showAndWait();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
